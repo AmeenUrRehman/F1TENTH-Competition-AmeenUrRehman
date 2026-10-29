@@ -58,7 +58,7 @@ when the node is started with no arguments:
 |---|---|---|---|
 | `stage1` | pursuit | `levine_raceline.csv` | 6.0 m/s |
 | `stage2` | pursuit | `levine_blocked_raceline.csv` | 8.0 m/s |
-| `stage3` | gap | none (no track-specific data) | 5.0 m/s |
+| `stage3` | gap | none (no track-specific data) | 7.0 m/s |
 | `final` | gap | none | 2.0 m/s (kept at or below the official cap) |
 
 ROS parameters can override a preset for testing: `mode` (`gap`/`pursuit`),

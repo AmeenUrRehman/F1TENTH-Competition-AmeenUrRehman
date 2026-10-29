@@ -9,6 +9,7 @@ from robotforge_controller.pure_pursuit import PurePursuit, PursuitParams
 
 LIDAR_TO_FRONT = 0.19   # m, LiDAR (0.275 m ahead of rear axle) to front bumper
 CORRIDOR_HALF = 0.22    # m, half car width plus a small margin
+PURSUIT_GUARD = 1.2     # m, pursuit only slows for obstacles this close
 
 
 def corridor_ttc(ranges, angle_min, angle_inc, speed):
@@ -64,9 +65,12 @@ class Racer:
             if pose is None:
                 return 0.0, 0.0
             steer, target, _ = self.pursuit.compute(*pose, speed)
-            # The scan still caps speed if something unexpected is close ahead.
-            if dbg['free'] < 2.0:
-                target = min(target, max(gap_speed, 1.0))
+            # The racing line is known to be clear, so only react to something
+            # unexpected close to the car. A longer check would brake in every
+            # corner, where the constant-steering arc runs into the outer wall.
+            i = int(np.argmin(np.abs(self.gap.steers - steer)))
+            if dbg['arc_free'][i] < min(dbg['horizon'], PURSUIT_GUARD):
+                target = min(target, max(self.gap.stop_speed(dbg['arc_free'][i]), 1.0))
         else:
             steer, target = gap_steer, gap_speed
 

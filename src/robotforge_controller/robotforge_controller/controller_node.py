@@ -29,7 +29,7 @@ STAGE_PRESETS = {
     'stage2': {'mode': 'pursuit', 'raceline': 'levine_blocked_raceline.csv',
                'speed_scale': 1.0, 'max_speed': 8.0},
     # Hidden track: map-free only.
-    'stage3': {'mode': 'gap', 'max_speed': 5.0},
+    'stage3': {'mode': 'gap', 'max_speed': 7.0},
     # Real car: organizers announce the speed cap; keep this at or below it.
     'final': {'mode': 'gap', 'max_speed': 2.0},
 }
