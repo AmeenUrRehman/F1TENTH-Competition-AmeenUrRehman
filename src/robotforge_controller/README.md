@@ -1,9 +1,11 @@
-# f1_racer — CIE-KFUPM F1TENTH competition controller
+# robotforge_controller — Team RobotForge, CIE-KFUPM F1TENTH competition controller
+
+Team: **RobotForge** · Member: Ameen Ur Rehman (ID 202527430)
 
 ROS 2 Jazzy `ament_python` package. One executable:
 
 ```bash
-ros2 run f1_racer controller
+ros2 run robotforge_controller controller
 ```
 
 ## Interface
@@ -32,7 +34,7 @@ source <competition-repo>/starter_ws/install/setup.bash
 cd <workspace>
 python /usr/bin/colcon build --symlink-install
 source install/setup.bash
-ros2 run f1_racer controller
+ros2 run robotforge_controller controller
 ```
 
 ## How it drives
@@ -49,7 +51,7 @@ ros2 run f1_racer controller
 
 ## Stage selection and parameters
 
-`STAGE` at the top of `f1_racer/controller_node.py` selects the preset used
+`STAGE` at the top of `robotforge_controller/controller_node.py` selects the preset used
 when the node is started with no arguments:
 
 | STAGE | mode | racing line | max speed requested |

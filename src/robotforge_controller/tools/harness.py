@@ -23,7 +23,7 @@ import types
 import numpy as np
 
 HERE = pathlib.Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))   # the f1_racer python package
+sys.path.insert(0, str(HERE.parent))   # the robotforge_controller python package
 
 COMPETITION = pathlib.Path.home() / "CompetionF1" / \
     "CIE-KFUPM-F1tenth-Autonomous-Racing-Competition"
@@ -127,8 +127,8 @@ def run_trial(env, lidar, racer, start, args):
 
 
 def main():
-    from f1_racer.pure_pursuit import load_raceline
-    from f1_racer.racer import Racer
+    from robotforge_controller.pure_pursuit import load_raceline
+    from robotforge_controller.racer import Racer
 
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)

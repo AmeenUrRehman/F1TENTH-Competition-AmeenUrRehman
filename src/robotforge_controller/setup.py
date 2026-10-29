@@ -2,7 +2,7 @@ from glob import glob
 
 from setuptools import find_packages, setup
 
-package_name = 'f1_racer'
+package_name = 'robotforge_controller'
 
 setup(
     name=package_name,
@@ -16,7 +16,7 @@ setup(
     ],
     install_requires=['setuptools', 'numpy'],
     zip_safe=True,
-    maintainer='ameen',
+    maintainer='Ameen Ur Rehman (RobotForge)',
     maintainer_email='ameensadiya12345@gmail.com',
     description='CIE-KFUPM F1TENTH competition controller (gap follower + pure pursuit)',
     license='MIT',
@@ -27,7 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'controller = f1_racer.controller_node:main',
+            'controller = robotforge_controller.controller_node:main',
         ],
     },
 )

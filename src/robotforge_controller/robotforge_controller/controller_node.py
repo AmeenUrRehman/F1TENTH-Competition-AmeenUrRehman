@@ -1,6 +1,6 @@
 """Competition controller node: /scan + /ego_racecar/odom in, /drive out.
 
-Organizers run ``ros2 run f1_racer controller`` with no arguments, so the
+Organizers run ``ros2 run robotforge_controller controller`` with no arguments, so the
 defaults for each stage live in STAGE_PRESETS below. Before submitting for a
 stage, set STAGE to that stage and commit.
 """
@@ -16,8 +16,8 @@ from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import LaserScan
 
-from f1_racer.pure_pursuit import load_raceline
-from f1_racer.racer import Racer
+from robotforge_controller.pure_pursuit import load_raceline
+from robotforge_controller.racer import Racer
 
 # Which preset the submitted build uses: 'stage1', 'stage2', 'stage3', 'final'.
 STAGE = 'stage1'
@@ -53,7 +53,7 @@ class Controller(Node):
         if mode == 'pursuit':
             name = self.get_parameter('raceline').value
             path = name if os.path.isabs(name) else os.path.join(
-                get_package_share_directory('f1_racer'), 'racelines', name)
+                get_package_share_directory('robotforge_controller'), 'racelines', name)
             raceline = load_raceline(path)
             self.get_logger().info(f'Racing line: {path}')
         self.racer = Racer(mode, max_speed, raceline,

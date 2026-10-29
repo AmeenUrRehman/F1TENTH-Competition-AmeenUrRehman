@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>f1_racer</name>
+  <name>robotforge_controller</name>
   <version>0.0.0</version>
   <description>CIE-KFUPM F1TENTH competition controller (gap follower + pure pursuit)</description>
-  <maintainer email="ameensadiya12345@gmail.com">ameen</maintainer>
+  <maintainer email="ameensadiya12345@gmail.com">Ameen Ur Rehman (RobotForge)</maintainer>
   <license>MIT</license>
 
   <depend>rclpy</depend>

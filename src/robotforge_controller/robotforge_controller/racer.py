@@ -4,8 +4,8 @@ import math
 
 import numpy as np
 
-from f1_racer.gap_follower import GapFollower, GapParams
-from f1_racer.pure_pursuit import PurePursuit, PursuitParams
+from robotforge_controller.gap_follower import GapFollower, GapParams
+from robotforge_controller.pure_pursuit import PurePursuit, PursuitParams
 
 LIDAR_TO_FRONT = 0.19   # m, LiDAR (0.275 m ahead of rear axle) to front bumper
 CORRIDOR_HALF = 0.22    # m, half car width plus a small margin
