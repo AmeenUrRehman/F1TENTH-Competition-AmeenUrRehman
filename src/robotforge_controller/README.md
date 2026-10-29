@@ -8,6 +8,35 @@ ROS 2 Jazzy `ament_python` package. One executable:
 ros2 run robotforge_controller controller
 ```
 
+## Demo
+
+**Stage 1 preset in the official competition simulator:** 3 timed laps,
+**44.40 s total, 0 collisions** according to the official race monitor
+(laps 14.95 / 14.70 / 14.75 s). Orange dots are the live LiDAR hits; the
+trail is coloured by speed. Playback is 2x real time.
+
+![Stage 1 run in the official simulator](docs/media/stage1.gif)
+
+| Official race monitor | What the LiDAR sees in a corner |
+|---|---|
+| ![lap times](docs/media/stage1_laps.png) | ![lidar](docs/media/stage1_lidar.png) |
+
+![Stage 1 path coloured by speed](docs/media/stage1_track.png)
+
+**Stage 2 (racing line on `levine_blocked`) and Stage 3 mode (no map, LiDAR
+only).** These two runs come from the headless test harness
+(`tools/harness.py`), which uses the same simulator backend, map loader and
+LiDAR settings as the official bridge, without RViz.
+
+| Stage 2: racing line, 32.38 s for 3 laps | Stage 3 mode: no map, 42.54 s for 3 laps |
+|---|---|
+| ![stage 2](docs/media/stage2.gif) | ![stage 3](docs/media/stage3.gif) |
+| ![stage 2 path](docs/media/stage2_track.png) | ![stage 3 path](docs/media/stage3_track.png) |
+
+All media is rendered from recorded run data by `tools/record_run.py` (listens
+to the official simulator's topics, never publishes `/drive`) and
+`tools/render_media.py`. Nothing is drawn by hand.
+
 ## Interface
 
 | Topic | Type | Direction |
